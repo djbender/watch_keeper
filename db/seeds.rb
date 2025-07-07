@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+%W(Seiko Spinnaker Citizen).each do |name|
+  Watch.create!(name: name)
+end
