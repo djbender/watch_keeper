@@ -1,0 +1,11 @@
+<% content_for :title, "New watch" %>
+
+<h1>New watch</h1>
+
+<%= render "form", watch: @watch %>
+
+<br>
+
+<div>
+  <%= link_to "Back to watches", watches_path %>
+</div>
