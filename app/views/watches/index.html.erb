@@ -7,10 +7,7 @@
 <div id="watches">
   <% @watches.each do |watch| %>
     <%= render watch %>
-    <p>
-      <%= link_to "Show this watch", watch %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New watch", new_watch_path %>
+<%= button_to "New watch", new_watch_path %>
