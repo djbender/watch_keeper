@@ -66,3 +66,5 @@ gem "ahoy_matey", "~> 5.4"
 gem "chartkick", "~> 5.2"
 
 gem "groupdate", "~> 6.7"
+
+gem "mission_control-jobs", "~> 1.1"
