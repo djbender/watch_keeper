@@ -4,6 +4,7 @@ class WatchesController < ApplicationController
   # GET /watches or /watches.json
   def index
     @watches = Watch.all
+    @events = EventAggregatorService.new.aggregate_events
   end
 
   # GET /watches/1 or /watches/1.json

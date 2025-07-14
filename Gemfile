@@ -48,8 +48,10 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-migration', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
 
   gem "rspec-rails"
 end
@@ -58,3 +60,9 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+gem "ahoy_matey", "~> 5.4"
+
+gem "chartkick", "~> 5.2"
+
+gem "groupdate", "~> 6.7"
