@@ -23,16 +23,16 @@ Style/Documentation:
   Enabled: false
 
 Metrics/BlockLength:
-  Severity: warning
+  Severity: refactor
 
 Metrics/AbcSize:
-  Severity: warning
+  Severity: refactor
 
 Rails/CreateTableWithTimestamps:
-  Severity: warning
+  Severity: refactor
 
 Rails/HasManyOrHasOneDependent:
-  Severity: warning
+  Severity: refactor
 
 Metrics/MethodLength:
-  Severity: warning
+  Severity: refactor
