@@ -1,1 +1,1 @@
-json.array! @watches, partial: "watches/watch", as: :watch
+json.array! @watches, partial: 'watches/watch', as: :watch

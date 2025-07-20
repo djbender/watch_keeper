@@ -1,5 +1,20 @@
 plugins:
+  - rubocop-rails
   - rubocop-migration
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-performance
 
 Migration/AddCheckConstraint:
   Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  Enabled: false
+  EnforcedStyle: with_fixed_indentation
+
+Layout/ArrayAlignment:
+  Enabled: false
+  EnforcedStyle: with_fixed_indentation

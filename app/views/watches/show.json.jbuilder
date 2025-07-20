@@ -1,1 +1,1 @@
-json.partial! "watches/watch", watch: @watch
+json.partial! 'watches/watch', watch: @watch

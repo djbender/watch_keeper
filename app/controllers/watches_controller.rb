@@ -1,5 +1,5 @@
 class WatchesController < ApplicationController
-  before_action :set_watch, only: %i[ show edit update destroy ]
+  before_action :set_watch, only: %i[show edit update destroy]
 
   # GET /watches or /watches.json
   def index
@@ -8,8 +8,7 @@ class WatchesController < ApplicationController
   end
 
   # GET /watches/1 or /watches/1.json
-  def show
-  end
+  def show; end
 
   # GET /watches/new
   def new
@@ -17,8 +16,7 @@ class WatchesController < ApplicationController
   end
 
   # GET /watches/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /watches or /watches.json
   def create
@@ -26,7 +24,7 @@ class WatchesController < ApplicationController
 
     respond_to do |format|
       if @watch.save
-        format.html { redirect_to @watch, notice: "Watch was successfully created." }
+        format.html { redirect_to @watch, notice: 'Watch was successfully created.' }
         format.json { render :show, status: :created, location: @watch }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +37,7 @@ class WatchesController < ApplicationController
   def update
     respond_to do |format|
       if @watch.update(watch_params)
-        format.html { redirect_to @watch, notice: "Watch was successfully updated." }
+        format.html { redirect_to @watch, notice: 'Watch was successfully updated.' }
         format.json { render :show, status: :ok, location: @watch }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +51,20 @@ class WatchesController < ApplicationController
     @watch.destroy!
 
     respond_to do |format|
-      format.html { redirect_to watches_path, status: :see_other, notice: "Watch was successfully destroyed." }
+      format.html { redirect_to watches_path, status: :see_other, notice: 'Watch was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_watch
-      @watch = Watch.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def watch_params
-      params.expect(watch: [ :name ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_watch
+    @watch = Watch.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def watch_params
+    params.expect(watch: [:name])
+  end
 end
