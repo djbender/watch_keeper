@@ -18,3 +18,21 @@ Layout/ArgumentAlignment:
 Layout/ArrayAlignment:
   Enabled: false
   EnforcedStyle: with_fixed_indentation
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Severity: warning
+
+Metrics/AbcSize:
+  Severity: warning
+
+Rails/CreateTableWithTimestamps:
+  Severity: warning
+
+Rails/HasManyOrHasOneDependent:
+  Severity: warning
+
+Metrics/MethodLength:
+  Severity: warning
