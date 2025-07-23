@@ -74,4 +74,5 @@ Rails.application.configure do
   config.solid_queue.connects_to = { database: { writing: :queue } }
 
   config.mission_control.jobs.http_basic_auth_enabled = false
+  config.active_record.strict_loading_by_default = true
 end
