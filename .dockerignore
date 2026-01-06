@@ -4,6 +4,9 @@
 /.git/
 /.gitignore
 
+# Ignore local REVISION file (generated during Docker build).
+/REVISION
+
 # Ignore bundler config.
 /.bundle
 

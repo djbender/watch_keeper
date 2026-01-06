@@ -1,0 +1,36 @@
+git_sha := `git rev-parse --short HEAD 2>/dev/null || echo "unknown"`
+image_name := `GIT_SHA={{git_sha}} docker buildx bake --print 2>/dev/null | jq -r '.target.default.tags[0]' | cut -d: -f1`
+
+default:
+    @just --list
+
+build:
+    GIT_SHA={{git_sha}} docker buildx bake
+
+build-arm:
+    GIT_SHA={{git_sha}} docker buildx bake --set '*.platform=linux/arm64'
+
+build-amd:
+    GIT_SHA={{git_sha}} docker buildx bake --set '*.platform=linux/amd64'
+
+push:
+    GIT_SHA={{git_sha}} docker buildx bake --push
+
+deploy:
+    dokku git:from-image {{image_name}}:{{git_sha}}
+
+release: build push deploy
+
+debug:
+    @echo "Variables:"
+    @echo "  git_sha: {{git_sha}}"
+    @echo "  image_name: {{image_name}}"
+    @echo ""
+    @echo "build command:"
+    @echo "  GIT_SHA={{git_sha}} docker buildx bake"
+    @echo ""
+    @echo "push command:"
+    @echo "  GIT_SHA={{git_sha}} docker buildx bake --push"
+    @echo ""
+    @echo "deploy command:"
+    @echo "  dokku git:from-image {{image_name}}:{{git_sha}}"

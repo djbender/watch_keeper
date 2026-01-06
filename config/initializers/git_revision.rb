@@ -1,0 +1,16 @@
+module GitRevision
+  def self.sha
+    @sha ||= begin
+      revision_file = Rails.root.join("REVISION")
+      if File.exist?(revision_file)
+        File.read(revision_file).strip
+      elsif ENV["GIT_SHA"].present?
+        ENV["GIT_SHA"][0..7]
+      else
+        "dev"
+      end
+    rescue StandardError
+      "unknown"
+    end
+  end
+end

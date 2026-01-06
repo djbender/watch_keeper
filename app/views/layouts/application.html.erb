@@ -26,5 +26,8 @@
 
   <body>
     <%= yield %>
+    <footer>
+      <p><small>Version: <%= GitRevision.sha %></small></p>
+    </footer>
   </body>
 </html>
