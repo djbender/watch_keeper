@@ -2,21 +2,16 @@ name: CI
 
 on:
   push:
-    branches-ignore:
-      - "dependabot/**"
-  pull_request_target:
-    types: [labeled]
-  workflow_dispatch: {}
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   scan_ruby:
     runs-on: ubuntu-latest
-
-    if: >
-      contains(github.event.pull_request.labels.*.name, 'dependencies')
-      || github.event_name == 'push'
-      || github.event_name == 'workflow_dispatch'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -32,12 +27,6 @@ jobs:
 
   scan_js:
     runs-on: ubuntu-latest
-
-    if: >
-      contains(github.event.pull_request.labels.*.name, 'dependencies')
-      || github.event_name == 'push'
-      || github.event_name == 'workflow_dispatch'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -53,12 +42,6 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-
-    if: >
-      contains(github.event.pull_request.labels.*.name, 'dependencies')
-      || github.event_name == 'push'
-      || github.event_name == 'workflow_dispatch'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
