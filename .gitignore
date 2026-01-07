@@ -35,3 +35,5 @@
 
 # Ignore generated revision file (created during Docker build).
 /REVISION
+.env
+!.env.example

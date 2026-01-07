@@ -1,0 +1,47 @@
+services:
+  web:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:80"
+    volumes:
+      - .:/rails
+    environment:
+      DATABASE_URL: postgres://watch_keeper:password@postgres/watch_keeper_production
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      RAILS_ENV: production
+      SOLID_QUEUE_IN_PUMA: "true"
+
+  worker:
+    build: .
+    command: ["./bin/rails", "solid_queue:start"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/rails
+    environment:
+      DATABASE_URL: postgres://watch_keeper:password@postgres/watch_keeper_production
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      RAILS_ENV: production
+    profiles:
+      - worker
+
+  postgres:
+    image: postgres:18
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: watch_keeper
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: watch_keeper_production
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U watch_keeper -d watch_keeper_production"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
