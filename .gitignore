@@ -37,3 +37,5 @@
 /REVISION
 .env
 !.env.example
+
+/CLAUDE.md
