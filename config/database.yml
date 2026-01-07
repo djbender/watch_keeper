@@ -21,12 +21,12 @@ default: &default
 
 
 development:
-  primary:
+  primary: &primary_development
     <<: *default
     database: watch_keeper_development
+    url: <%= ENV.fetch("DATABASE_URL", nil) %>
   queue:
-    <<: *default
-    database: watch_keeper_development_queue
+    <<: *primary_development
     migrations_paths: db/queue_migrate
 
   # The specified database role being used to connect to PostgreSQL.

@@ -9,10 +9,11 @@ services:
     volumes:
       - .:/rails
     environment:
-      DATABASE_URL: postgres://watch_keeper:password@postgres/watch_keeper_production
+      DATABASE_URL: postgres://watch_keeper:password@postgres/watch_keeper_development
       RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
-      RAILS_ENV: production
+      RAILS_ENV: development
       SOLID_QUEUE_IN_PUMA: "true"
+      LOG_REQUESTS: "false"
 
   worker:
     build: .
@@ -23,9 +24,9 @@ services:
     volumes:
       - .:/rails
     environment:
-      DATABASE_URL: postgres://watch_keeper:password@postgres/watch_keeper_production
+      DATABASE_URL: postgres://watch_keeper:password@postgres/watch_keeper_development
       RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
-      RAILS_ENV: production
+      RAILS_ENV: development
     profiles:
       - worker
 
@@ -36,9 +37,9 @@ services:
     environment:
       POSTGRES_USER: watch_keeper
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: watch_keeper_production
+      POSTGRES_DB: watch_keeper_development
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U watch_keeper -d watch_keeper_production"]
+      test: ["CMD-SHELL", "pg_isready -U watch_keeper -d watch_keeper_development"]
       interval: 5s
       timeout: 5s
       retries: 5
