@@ -83,7 +83,7 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.22)
-    bigdecimal (4.1.0)
+    bigdecimal (4.1.1)
     bindex (0.8.1)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
@@ -119,8 +119,8 @@ GEM
       raabro (~> 1.4)
     globalid (1.3.0)
       activesupport (>= 6.1)
-    groupdate (6.7.0)
-      activesupport (>= 7.1)
+    groupdate (6.8.0)
+      activesupport (>= 7.2)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     image_processing (1.14.0)
@@ -394,7 +394,7 @@ DEPENDENCIES
   brakeman
   byebug
   chartkick (~> 5.2)
-  groupdate (~> 6.7)
+  groupdate (~> 6.8)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
