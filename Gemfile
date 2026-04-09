@@ -59,7 +59,7 @@ group :development do
   gem 'web-console'
 end
 
-gem 'ahoy_matey', '~> 5.4'
+gem 'ahoy_matey', '~> 5.5'
 
 gem 'chartkick', '~> 5.2'
 
