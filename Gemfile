@@ -65,4 +65,4 @@ gem 'chartkick', '~> 5.2'
 
 gem 'groupdate', '~> 6.8'
 
-gem 'mission_control-jobs', '~> 1.1'
+gem 'mission_control-jobs', '~> 1.2'
