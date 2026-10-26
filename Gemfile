@@ -61,7 +61,7 @@ end
 
 gem 'ahoy_matey', '~> 5.5'
 
-gem 'chartkick', '~> 5.2'
+gem 'chartkick', '~> 5.3'
 
 gem 'groupdate', '~> 6.8'
 
